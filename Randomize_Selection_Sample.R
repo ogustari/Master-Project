@@ -10,7 +10,7 @@ library(openxlsx)
 #letter of the plant'_'number of the plant', 
 #ex for tomato, replicate 2 "P_2"
 
-Big_Exp <- read_excel("~/Documents/UNIL/Master/Master project/Bix_Exp/Table/Big_Exp.xlsx", 
+Big_Exp <- read_excel("~/Documents/UNIL/Master/Master_project/Bix_Exp/Table/Big_Exp.xlsx", 
                       na = "NA")
 
 #Cleaning data frame
@@ -68,4 +68,4 @@ Choice_Random <- function (a, b, Random = F) {
   return(head(Table_Rdm)) #to show if the table was generate correctly
 }
 
-Choice_Random("P", "~/Documents/UNIL/Master/Master project/Bix_Exp/Table/Plantago_Table.xlsx", Random = T)
+Choice_Random("P", "~/Documents/UNIL/Master/Master_project/Bix_Exp/Table/Plantago_Table.xlsx", Random = T)
