@@ -59,9 +59,17 @@ for(i in To_Trim){
 
 arbol <- nj(as.dist(Trimmed_Matrix_Distance))
 
+color.tree <- rep("black", times = 15)
+color.tree[c(1,6,11,13)] <- "red"
 pdf("Unrooted_distance_trhee.pdf")
-plot.phylo(arbol, type = "unrooted", edge.width = 1, font = 1,lab4ut = "axial", show.tip.label = TRUE, cex = 0.7)
+plot.phylo(arbol, type = "unrooted", edge.width = 1, font = 1,lab4ut = "axial", show.tip.label = FALSE)
+tiplabels(text = c("","",arbol$tip.label[3],rep("",times = 4),arbol$tip.label[8], "", arbol$tip.label[10], rep("", times =5)), cex = .6, col = color.tree, frame = "none", adj = 0)
+tiplabels(text = c("","","",arbol$tip.label[4:5], rep("",times = 5),"", "", arbol$tip.label[13:15]), cex = .6, col = color.tree, frame = "none", adj = 1)
+tiplabels(text = c(arbol$tip.label[1], rep("",times = 14)), cex = .6, col = color.tree, frame = "none", adj = 1, srt = 50)
+tiplabels(text = c(rep("", times = 5),arbol$tip.label[6:7], rep("",times = 8)), cex = .6, col = color.tree, frame = "none", adj = 1, srt = 90)
+tiplabels(text = c("",arbol$tip.label[2],rep("", times = 6),arbol$tip.label[9],"",arbol$tip.label[11:12],"","",""), cex = .6, col = color.tree, frame = "none", adj = 1, srt = -90)
 dev.off()
+
 
 #Make barplot with distance mean
 for(i in as.character(c("B3", "B4", "B10", "D3"))){
