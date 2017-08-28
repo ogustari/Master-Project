@@ -4,11 +4,7 @@ rm(list=ls())
 setwd("/Users/Olivier/Documents/UNIL/Master/Master_project/Big_Exp/Script/R_Code/Distance_Isolate")
 
 install.packages("ape")
-install.packages("RColorBrewer")
-
 library(ape)
-library(plyr)
-
 
 #Import data set
 Distance <- read.table("Global_list.txt", col.names = c("Isolate1", "Isolate2", "Distance"))
@@ -62,7 +58,10 @@ for(i in To_Trim){
 }
 
 arbol <- nj(as.dist(Trimmed_Matrix_Distance))
-plot.phylo(arbol, type = "unrooted", edge.width = 1, font = 1,lab4ut = "axial", show.tip.label = TRUE, cex = 0.5)
+
+pdf("Unrooted_distance_trhee.pdf")
+plot.phylo(arbol, type = "unrooted", edge.width = 1, font = 1,lab4ut = "axial", show.tip.label = TRUE, cex = 0.7)
+dev.off()
 
 #Make barplot with distance mean
 for(i in as.character(c("B3", "B4", "B10", "D3"))){
